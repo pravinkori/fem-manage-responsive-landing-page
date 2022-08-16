@@ -1,10 +1,3 @@
-// import './style.css'
-
-// document.querySelector('#app').innerHTML = `
-//   <h1>Hello Vite!</h1>
-//   <a href="https://vitejs.dev/guide/features.html" target="_blank">Documentation</a>
-// `
-
 const primaryHeader = document.querySelector('.primary-header');
 const navToggle = document.querySelector('.mobile-nav-toggle');
 const primaryNav = document.querySelector('.primary-navigation');
@@ -16,10 +9,19 @@ navToggle.addEventListener('click', () => {
   primaryHeader.toggleAttribute('data-overlay')
 });
 
+// const slider = new A11YSlider(document.querySelector(".slider"), {
+//   adaptiveHeight: false,
+//   dots: true,
+//   centerMode: true,
+//   arrows: false,
+//   responsive: {
+//     480: {
+//       dots: false, // dots enabled 1280px and up
+//     },
+//   },
+// });
 
-
-
-
-
-
-
+const slider = new A11YSlider(document.querySelector('.slider'), {
+  adaptiveHeight: true,
+  dots: false,
+});
