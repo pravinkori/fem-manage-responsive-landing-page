@@ -486,11 +486,34 @@ input:where([type="text"], [type="email"]) {
   /* padding-block: var(--size-700); */
 }
 
-.slider>* {
+.a11y-slider-container {
+  margin-block: var(--size-700);
+  margin-inline: var(--size-400);
+}
+
+.slider > * {
   position: relative;
-  width: 400px;
+  width: 100%;
   flex: 0 0 auto;
-  
+}
+
+@media (min-width:30em) {
+  .slider {
+    scroll-padding-inline: 25px;
+  }
+  .a11y-slider-container {
+    margin-inline: 0;
+  }
+
+  .slider > * {
+      width: 50%;
+    }
+}
+
+@media (min-width:50em) {
+  .slider > * {
+      width: 37%;
+    }
 }
 
 .slider-content {
@@ -501,12 +524,52 @@ input:where([type="text"], [type="email"]) {
 
 .slider img {
   width: var(--size-800);
-  position: absolute;
+  position: relative;
   inset: 0;
+  top: calc(var(--size-800) / 2);
   margin-inline: auto;
-  top: -32px;
   /* top: 0; */
-  /* transform: translateY(-50%); */
+}
+
+.a11y-slider-dots {
+  display: flex;
+  justify-content: center;
+  margin-block: var(--size-500);
+  gap: var(--size-300);
+}
+
+.a11y-slider-dots li {
+  display: block;
+  width: 12px;
+  height: 12px;
+  padding: 0;
+}
+
+.a11y-slider-dots li button {
+  display: block;
+  font-size: 0;
+  text-indent: -9999px;
+  background: transparent;
+  border: 1px solid var(--clr-accent-400) !important;
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+}
+
+.a11y-slider-dots li button.active {
+  background: var(--clr-accent-400);
+}
+
+.a11y-slider-prev {
+  text-indent: -9999px;
+  position: relative;
+}
+
+.a11y-slider-prev::after {
+  content: "test";
+  position: absolute;
+  left: 0;
+  top: 0;
 }
 
 /*? Utility Classes */
