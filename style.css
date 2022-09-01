@@ -305,8 +305,13 @@ p[data-width = "wide"] {
   /* outline: 2px solid red; */
 }
 
+.primary-footer__wrapper > * {
+  margin-inline: auto;
+}
+
 .primary-footer__logo {
   grid-area: logo;
+  
 }
 
 .primary-footer__form {
@@ -315,16 +320,10 @@ p[data-width = "wide"] {
 
 .primary-footer__copyright {
   grid-area: copyright;
+  text-align: center;
   opacity: 0.7;
 }
 
-/* .primary-footer-logo-social {
-  grid-area: logo-social;
-  display: flex;
-  flex-direction: column-reverse;
-  align-items: center;
-  gap: var(--size-700);
-} */
 
 .primary-footer__nav {
   grid-area: nav;
@@ -341,6 +340,7 @@ input:where([type="text"], [type="email"]) {
   border-radius: 100vw;
   border: 0;
   padding: var(--size-300) var(--size-500);
+  width: max(100%, 14rem);
 }
 
 @media (min-width: 47em) {
@@ -348,17 +348,21 @@ input:where([type="text"], [type="email"]) {
     grid-template-areas: 
       'logo nav form'
       'social nav copyright';
-    grid-template-columns: min-content 1fr min-content;
+    grid-template-columns: min-content 1fr auto;
+  }
+
+  .primary-footer__copyright {
+    text-align: right;
   }
 
 }
 
-/* @media (min-width: 47em) {
+@media (min-width: 47em) {
   .primary-footer__wrapper > * {
-    outline: 2px solid red;
+    /* outline: 2px solid red; */
     margin-inline: auto;
   }
-} */
+}
 
 
 /*? Footer navigation */
@@ -366,7 +370,7 @@ input:where([type="text"], [type="email"]) {
 .footer-nav {
   columns: 2;
   list-style-type: none;
-  gap: clamp(var(--size-200), 30vw, var(--size-900));
+  gap: clamp(4rem, 10vw, 7rem);
 }
 
 .footer-nav ul {
@@ -382,6 +386,12 @@ input:where([type="text"], [type="email"]) {
   color: var(--clr-accent-400);
 }
 
+.primary-footer__form {
+  grid-area: form;
+  display: flex;
+  gap: var(--size-200);
+}
+
 /*? Social list */
 
 .social-list {
@@ -391,6 +401,7 @@ input:where([type="text"], [type="email"]) {
 
 .social-icon {
   width: var(--size-600);
+  aspect-ratio: 1;
   fill: var(--clr-neutral-100);
 }
 
@@ -404,6 +415,7 @@ input:where([type="text"], [type="email"]) {
     }
   .social-icon {
     width: var(--size-500);
+    max-width: revert;
   }
 }
 
